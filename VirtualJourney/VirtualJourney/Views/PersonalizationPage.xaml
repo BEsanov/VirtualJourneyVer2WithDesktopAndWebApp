@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Visual="Material"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VirtualJourney.Views.PersonalizationPage"
+             xmlns:vm="clr-namespace:VirtualJourney.ViewModels"
+                        
+             BackgroundColor="Brown"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:PersonalizationViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Black">White</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource Black}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <!--<Label Text="Moodle Page"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+
+            <SearchBar x:Name="searchBar"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search ..."       />
+
+            <Grid Margin="7,5,5,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="55"></RowDefinition>
+                    <!--<RowDefinition Height="55"></RowDefinition>-->
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"></ColumnDefinition>
+                    <ColumnDefinition Width="34*"></ColumnDefinition>
+                    <ColumnDefinition Width="33*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Black" Text="Favorites List" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large"></Label>
+                <Image Grid.Row="1" Grid.Column="0" Source="ltky_logo.png" >
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Button Text="sdfsdfsd" TextColor="Red" FontSize="Large"/>
+                <Image Grid.Row="1" Grid.Column="1"  Source="dining.png" WidthRequest="64">
+                   
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="1" Grid.Column="2" Source="library.png">
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="2" Grid.Column="0"  Source="SISU.png" >
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="2" Grid.Column="1"  Source="TimeEdit.png">
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+                <!--Extra Image-->
+                <Image Grid.Row="2" Grid.Column="2" Source="shop.png" >
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="3" Grid.Column="0"  Source="events.png">
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="3" Grid.Column="1" Source="heath_care.png">
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="3" Grid.Column="2"  Source="departure.png" >
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <!--<Image Grid.Row="4" Grid.Column="1"  Source="TimeEdit.png">
+                    <Image.GestureRecognizers>
+                        <DropGestureRecognizer AllowDrop="True"
+                                           Drop="OnCorrectDrop" />
+                    </Image.GestureRecognizers>
+                </Image>-->
+
+            </Grid>
+            <ImageButton Source="settings.png" Clicked="ShowButton_Clicked" x:Name="showButton" HorizontalOptions="End"></ImageButton>
+            <Button Text="Done" BackgroundColor="DarkGreen"
+                    Clicked="HideButton_Clicked" x:Name="hideButton" IsVisible="false" HorizontalOptions="Center" FontSize="Micro"></Button>
+            <Grid x:Name="selectableGrid" IsVisible="false" BackgroundColor="DarkSeaGreen">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="SISU.png" >
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="0" Grid.Column="1" Source="ltky_logo.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="0" Grid.Column="2" Source="icon_about.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="0" Grid.Column="3" Source="icon_feed.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                        <TapGestureRecognizer Tapped="OnImageNameTapped"
+                            NumberOfTapsRequired="2" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="1" Grid.Column="0"  Source="night_shelter.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="1" Grid.Column="1"  Source="location.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="1" Grid.Column="2"  Source="heath_care.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="1" Grid.Column="3" Source="people_directory.png" x:Name="sisuLogo">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                        <TapGestureRecognizer Tapped="OnImageNameTapped"
+                            NumberOfTapsRequired="2" />
+
+                    </Image.GestureRecognizers>
+
+                </Image>
+                <Image Grid.Row="2" Grid.Column="0"  Source="sports.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="2" Grid.Column="1" Source="parking.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Row="2" Grid.Column="2" Source="calendar.png">
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Row="2" Grid.Column="3" Source="schedule.png">
+
+                    <Image.GestureRecognizers>
+                        <DragGestureRecognizer CanDrag="True"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+                <!--Make Show and Hide section.
+                From there you can show the features and user can add their favorite features to the menu.-->
+
+                <!--Next thing check how to remove dragged Image/button-->
+            </Grid>
+
+
+            <ScrollView>
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Source="https://www.lut.fi/documents/10633/162486/tule-meille-toihin-sisaltokuva-615x295.jpg.jpg"></Image>
+                    <Label Grid.Row="0" Grid.Column="1" FontSize="Small" Text="We support working together in all our activities. Our management is based on values by which we operate in a financially responsible and fair manner"></Label>
+
+                    <Image Grid.Row="1" Grid.Column="0" Source="https://www.lut.fi/documents/10633/86670/headerkuva-etusivu-lut-syksy-1400x654.jpg"></Image>
+                    <Label Grid.Row="1" Grid.Column="1" FontSize="Small" Text="Clean energy, water and air are life-giving resources for which we at LUT University seek new solutions with our expertise in technology and."></Label>
+
+                    <Image Grid.Row="2" Grid.Column="0" Source="https://www.lut.fi/documents/10633/162486/system-earth-618x618.jpg"></Image>
+                    <Label Grid.Row="2" Grid.Column="1" FontSize="Small" Text="Air – Turning emissions into opportunities. Defining air quality, emissions and climate impacts"></Label>
+
+                </Grid>
+            </ScrollView>
+            <ScrollView>
+
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
